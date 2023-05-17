@@ -9,7 +9,6 @@ pipeline {
                 DB_PASSWORD = credentials("laravel-password")
             }
             steps {
-                sh 'php --version'
                 sh 'composer install'
                 sh 'composer --version'
                 sh 'cp .env.example .env'
