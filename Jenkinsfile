@@ -16,7 +16,7 @@ pipeline {
         // Deploy the Docker image to your environment
         // Modify this step according to your deployment strategy
         // For example, you might push the image to a Docker registry or deploy it directly to a server
-        sh 'docker run -d -p 8080:80 my-laravel-app'
+        sh 'docker run -d -p 8090:80 my-laravel-app'
       }
     }
   }
