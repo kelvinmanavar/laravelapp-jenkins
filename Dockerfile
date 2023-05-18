@@ -7,6 +7,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY . /var/www/html
 COPY ./public/.htaccess /var/www/html/.htaccess
 WORKDIR /var/www/html
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html/storage
 RUN composer install \
     --ignore-platform-reqs \
     --no-interaction \
@@ -15,7 +17,6 @@ RUN composer install \
     --prefer-dist
 RUN cp .env.example .env
 RUN php artisan key:generate
-RUN chmod -R 777 storage
 RUN a2enmod rewrite
 RUN service apache2 restart
 EXPOSE 80
