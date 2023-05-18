@@ -19,5 +19,5 @@ RUN cp .env.example .env
 RUN php artisan key:generate
 RUN a2enmod rewrite
 RUN service apache2 restart
-EXPOSE 8090
+EXPOSE 80
 CMD ["apache2-foreground"]
